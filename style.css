@@ -14,18 +14,18 @@ body {
   background: linear-gradient(270deg, #ff9a9e, #fad0c4, #a18cd1, #84fab0);
   background-size: 600% 600%;
   animation: gradientMove 10s ease infinite;
+  transition: 0.5s;
 }
 
-/* 🌈 Gradient Animation */
 @keyframes gradientMove {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
-/* Card UI */
+/* Card */
 .card {
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255,255,255,0.9);
   padding: 25px;
   width: 320px;
   border-radius: 20px;
@@ -33,31 +33,25 @@ body {
   backdrop-filter: blur(10px);
   box-shadow: 0 0 25px rgba(255,255,255,0.5);
   animation: fadeIn 0.6s ease;
+  transition: 0.5s;
 }
 
-/* Hidden */
 .hidden {
   display: none;
 }
 
-/* Title with glow */
 h2 {
   margin-bottom: 15px;
   color: #ff5e7e;
-  text-shadow: 0 0 10px #ff5e7e, 0 0 20px #ff9966;
+  text-shadow: 0 0 10px #ff5e7e;
 }
 
-/* Login info */
+/* Login box */
 .login-info {
   background: rgba(255,255,255,0.6);
   padding: 10px;
   border-radius: 10px;
   margin-bottom: 10px;
-  transition: 0.3s;
-}
-
-.login-info:hover {
-  box-shadow: 0 0 15px #ff5e7e;
 }
 
 /* Inputs */
@@ -67,13 +61,12 @@ input {
   margin: 8px 0;
   border-radius: 10px;
   border: none;
-  outline: none;
   background: rgba(255,255,255,0.7);
   transition: 0.3s;
 }
 
 input:focus {
-  box-shadow: 0 0 10px #ff5e7e, 0 0 20px #a18cd1;
+  box-shadow: 0 0 10px #ff5e7e;
 }
 
 /* Buttons */
@@ -82,20 +75,19 @@ button {
   padding: 10px;
   border: none;
   background: linear-gradient(45deg, #ff5e7e, #ff9966, #a18cd1);
-  background-size: 200%;
   color: white;
   border-radius: 10px;
   cursor: pointer;
+  margin-top: 5px;
   transition: 0.3s;
 }
 
 button:hover {
-  background-position: right;
   transform: scale(1.05);
-  box-shadow: 0 0 20px #ff5e7e;
+  box-shadow: 0 0 15px #ff5e7e;
 }
 
-/* Task input row */
+/* Task box */
 .task-box {
   display: flex;
   gap: 5px;
@@ -109,13 +101,12 @@ button:hover {
   width: 80px;
 }
 
-/* Task list */
+/* List */
 ul {
   list-style: none;
   margin-top: 15px;
 }
 
-/* Task item */
 li {
   background: rgba(255,255,255,0.7);
   padding: 10px;
@@ -131,10 +122,9 @@ li {
 
 li:hover {
   transform: translateX(5px);
-  box-shadow: 0 0 15px #a18cd1;
+  box-shadow: 0 0 10px #a18cd1;
 }
 
-/* Completed */
 .completed {
   text-decoration: line-through;
   opacity: 0.6;
@@ -142,20 +132,18 @@ li:hover {
 
 /* Delete button */
 li button {
-  background: linear-gradient(45deg, red, orange);
+  width: auto;
+  background: red;
   padding: 5px 8px;
-  border-radius: 5px;
 }
 
 li button:hover {
-  box-shadow: 0 0 10px red;
+  background: darkred;
 }
 
 /* Error */
 #error {
   color: red;
-  margin-top: 5px;
-  animation: shake 0.3s;
 }
 
 /* Animations */
@@ -169,10 +157,31 @@ li button:hover {
   to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes shake {
-  0% { transform: translateX(0); }
-  25% { transform: translateX(-5px); }
-  50% { transform: translateX(5px); }
-  75% { transform: translateX(-5px); }
-  100% { transform: translateX(0); }
+/* 🌙 DARK MODE */
+.dark {
+  background: linear-gradient(270deg, #141e30, #243b55);
+}
+
+.dark .card {
+  background: rgba(0,0,0,0.8);
+  color: white;
+}
+
+.dark input {
+  background: rgba(255,255,255,0.1);
+  color: white;
+}
+
+.dark li {
+  background: rgba(255,255,255,0.1);
+  color: white;
+}
+
+.dark .login-info {
+  background: rgba(255,255,255,0.1);
+}
+
+.dark h2 {
+  color: #00f2fe;
+  text-shadow: 0 0 10px #00f2fe;
 }

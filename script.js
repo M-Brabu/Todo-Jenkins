@@ -18,12 +18,12 @@ function addTask() {
   let li = document.createElement("li");
   li.innerText = input.value;
 
-  // complete toggle
+  // complete
   li.onclick = function () {
     li.classList.toggle("completed");
   };
 
-  // delete button
+  // delete
   let btn = document.createElement("button");
   btn.innerText = "X";
 
@@ -36,4 +36,16 @@ function addTask() {
   document.getElementById("list").appendChild(li);
 
   input.value = "";
+}
+
+function toggleMode() {
+  document.body.classList.toggle("dark");
+
+  let btn = document.getElementById("modeBtn");
+
+  if (document.body.classList.contains("dark")) {
+    btn.innerText = "☀️ Light Mode";
+  } else {
+    btn.innerText = "🌙 Dark Mode";
+  }
 }
