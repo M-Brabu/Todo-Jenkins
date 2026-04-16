@@ -1,31 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Simple To-Do</title>
+  <title>Colorful To-Do App</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div id="loginPage">
-  <h2>Login</h2>
+<!-- LOGIN -->
+<div id="loginPage" class="card">
+  <h2>Welcome 👋</h2>
 
-  <!-- LOGIN INFO BOX -->
   <div class="login-info">
-    <p><b>Username:</b> brabu</p>
-    <p><b>Password:</b> 1234</p>
+    <p>Username: <b>brabu</b></p>
+    <p>Password: <b>1234</b></p>
   </div>
 
-  <input id="username" placeholder="Username"><br>
-  <input id="password" type="password" placeholder="Password"><br>
+  <input id="username" placeholder="Enter Username">
+  <input id="password" type="password" placeholder="Enter Password">
   <button onclick="login()">Login</button>
   <p id="error"></p>
 </div>
 
-<div id="appPage" style="display:none;">
-  <h2>To-Do App</h2>
-  <input id="taskInput" placeholder="Enter task">
-  <button onclick="addTask()">Add</button>
+<!-- TODO APP -->
+<div id="appPage" class="card hidden">
+  <h2>My To-Do List ✨</h2>
+
+  <div class="task-box">
+    <input id="taskInput" placeholder="Enter task...">
+    <button onclick="addTask()">Add</button>
+  </div>
 
   <ul id="list"></ul>
 </div>
