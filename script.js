@@ -1,3 +1,6 @@
+let tasks = JSON.parse(localStorage.getItem("tasks") || "[]");
+let currentTab = "all";
+
 // LOGIN
 function login() {
   let user = document.getElementById("username").value;
@@ -7,13 +10,11 @@ function login() {
     document.getElementById("loginPage").classList.add("hidden");
     document.getElementById("appPage").classList.remove("hidden");
   } else {
-    document.getElementById("error").innerText = "Wrong username or password!";
+    document.getElementById("error").innerText = "Wrong login!";
   }
 }
 
-// STORAGE
-let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
-
+// SAVE
 function saveTasks() {
   localStorage.setItem("tasks", JSON.stringify(tasks));
 }
@@ -37,24 +38,34 @@ function addTask() {
 // LOAD TASKS
 function loadTasks() {
   let list = document.getElementById("list");
-  if (!list) return;
-
   list.innerHTML = "";
 
   tasks.forEach((task, index) => {
+
+    if (
+      currentTab === "completed" && !task.completed ||
+      currentTab === "incomplete" && task.completed
+    ) return;
+
     let li = document.createElement("li");
     li.innerText = task.text;
 
     if (task.completed) li.classList.add("completed");
 
-    li.onclick = () => toggleTask(index);
+    li.onclick = () => {
+      tasks[index].completed = !tasks[index].completed;
+      saveTasks();
+      loadTasks();
+    };
 
     let btn = document.createElement("button");
     btn.innerText = "X";
 
     btn.onclick = (e) => {
       e.stopPropagation();
-      deleteTask(index);
+      tasks.splice(index, 1);
+      saveTasks();
+      loadTasks();
     };
 
     li.appendChild(btn);
@@ -62,17 +73,9 @@ function loadTasks() {
   });
 }
 
-// TOGGLE
-function toggleTask(index) {
-  tasks[index].completed = !tasks[index].completed;
-  saveTasks();
-  loadTasks();
-}
-
-// DELETE
-function deleteTask(index) {
-  tasks.splice(index, 1);
-  saveTasks();
+// TAB SWITCH
+function showTab(tab) {
+  currentTab = tab;
   loadTasks();
 }
 

@@ -5,7 +5,7 @@
   font-family: Arial;
 }
 
-/* 🌈 Animated Background */
+/* Background */
 body {
   height: 100vh;
   display: flex;
@@ -27,31 +27,13 @@ body {
 .card {
   background: rgba(255,255,255,0.9);
   padding: 25px;
-  width: 320px;
+  width: 340px;
   border-radius: 20px;
   text-align: center;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 0 25px rgba(255,255,255,0.5);
-  animation: fadeIn 0.6s ease;
-  transition: 0.5s;
 }
 
 .hidden {
   display: none;
-}
-
-h2 {
-  margin-bottom: 15px;
-  color: #ff5e7e;
-  text-shadow: 0 0 10px #ff5e7e;
-}
-
-/* Login box */
-.login-info {
-  background: rgba(255,255,255,0.6);
-  padding: 10px;
-  border-radius: 10px;
-  margin-bottom: 10px;
 }
 
 /* Inputs */
@@ -61,12 +43,6 @@ input {
   margin: 8px 0;
   border-radius: 10px;
   border: none;
-  background: rgba(255,255,255,0.7);
-  transition: 0.3s;
-}
-
-input:focus {
-  box-shadow: 0 0 10px #ff5e7e;
 }
 
 /* Buttons */
@@ -79,50 +55,34 @@ button {
   border-radius: 10px;
   cursor: pointer;
   margin-top: 5px;
-  transition: 0.3s;
 }
 
-button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 15px #ff5e7e;
-}
-
-/* Task box */
-.task-box {
+/* Tabs */
+.tabs {
   display: flex;
-  gap: 5px;
+  justify-content: space-between;
+  margin: 10px 0;
 }
 
-.task-box input {
-  flex: 1;
-}
-
-.task-box button {
-  width: 80px;
+.tabs button {
+  width: 32%;
+  font-size: 12px;
 }
 
 /* List */
 ul {
   list-style: none;
-  margin-top: 15px;
+  margin-top: 10px;
 }
 
 li {
   background: rgba(255,255,255,0.7);
   padding: 10px;
-  margin: 8px 0;
+  margin: 5px 0;
   border-radius: 10px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
   cursor: pointer;
-  animation: slideUp 0.3s ease;
-  transition: 0.3s;
-}
-
-li:hover {
-  transform: translateX(5px);
-  box-shadow: 0 0 10px #a18cd1;
 }
 
 .completed {
@@ -130,36 +90,9 @@ li:hover {
   opacity: 0.6;
 }
 
-/* Delete button */
-li button {
-  width: auto;
-  background: red;
-  padding: 5px 8px;
-}
-
-li button:hover {
-  background: darkred;
-}
-
-/* Error */
-#error {
-  color: red;
-}
-
-/* Animations */
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.9); }
-  to { opacity: 1; transform: scale(1); }
-}
-
-@keyframes slideUp {
-  from { opacity: 0; transform: translateY(15px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* 🌙 DARK MODE */
+/* Dark Mode */
 .dark {
-  background: linear-gradient(270deg, #141e30, #243b55);
+  background: #111;
 }
 
 .dark .card {
@@ -167,35 +100,7 @@ li button:hover {
   color: white;
 }
 
-.dark input {
-  background: rgba(255,255,255,0.1);
-  color: white;
-}
-
 .dark li {
-  background: rgba(255,255,255,0.1);
+  background: #333;
   color: white;
-}
-
-.dark .login-info {
-  background: rgba(255,255,255,0.1);
-}
-
-.dark h2 {
-  color: #00f2fe;
-  text-shadow: 0 0 10px #00f2fe;
-}
-.nav {
-  display: flex;
-  justify-content: space-between;
-  margin: 10px 0;
-}
-
-.nav a {
-  text-decoration: none;
-  color: white;
-  background: #ff5e7e;
-  padding: 5px 10px;
-  border-radius: 8px;
-  font-size: 14px;
 }
