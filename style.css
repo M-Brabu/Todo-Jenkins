@@ -185,3 +185,17 @@ li button:hover {
   color: #00f2fe;
   text-shadow: 0 0 10px #00f2fe;
 }
+.nav {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.nav a {
+  text-decoration: none;
+  color: white;
+  background: #ff5e7e;
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 14px;
+}
